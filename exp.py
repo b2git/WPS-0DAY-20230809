@@ -36,8 +36,8 @@ def replace_url_in_docx(docx_path, new_url):
     # 解析XML内容
     root = etree.fromstring(xml_content)
 
-    # 查找并替换URL（忽略命名空间）
-    url_tag = root.find(".//{*}url")
+    # 查找并替换URL（使用特定的命名空间）
+    url_tag = root.find(".//{http://clientweb.docer.wps.cn.cloudwps.cn/1.html}url")
     if url_tag is not None:
         url_tag.text = new_url
 
