@@ -1,3 +1,7 @@
+#看看这位师傅的，他写的好
+[ba0gu0/wps-rce][https://github.com/ba0gu0/wps-rce]
+
+
 # WPS-0DAY-20230809
 WPS Office 2023个人版＜11.1.0.15120; WPS Office 2019企业版＜11.8.2.12085 
 ## 使用方法
