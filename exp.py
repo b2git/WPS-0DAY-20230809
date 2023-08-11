@@ -14,21 +14,13 @@ def print_banner():
     """
     print(banner)
 
+
 def replace_url_in_docx(docx_path, new_url):
     # 打开docx文件
     zipf = zipfile.ZipFile(docx_path, "a")
 
-    # 查找webExtension1.xml文件的路径
-    xml_path = None
-    for filename in zipf.namelist():
-        if "webExtension1.xml" in filename:
-            xml_path = filename
-            break
-
-    if xml_path is None:
-        print("File webExtension1.xml not found in the archive.")
-        zipf.close()
-        return
+    # 指定webExtension1.xml文件的路径
+    xml_path = "word/webExtensions/webExtension1.xml"
 
     # 读取webExtension1.xml文件
     xml_content = zipf.read(xml_path)
@@ -36,14 +28,16 @@ def replace_url_in_docx(docx_path, new_url):
     # 解析XML内容
     root = etree.fromstring(xml_content)
 
-    # 查找并替换URL（使用特定的命名空间）
-    url_tag = root.find(".//{http://clientweb.docer.wps.cn.cloudwps.cn/1.html}url")
+    # 查找并替换URL，使用正确的命名空间
+    namespace = {"wpswe": "http://www.wps.cn/officeDocument/2018/webExtension"}
+    url_tag = root.find(".//wpswe:url", namespaces=namespace)
     if url_tag is not None:
         url_tag.text = new_url
 
     # 将更改后的XML内容写回docx文件
     zipf.writestr(xml_path, etree.tostring(root))
     zipf.close()
+
 
 if __name__ == "__main__":
     print_banner()
