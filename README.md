@@ -1,5 +1,5 @@
 #看看这位师傅的，他写的好
-[ba0gu0/wps-rce][https://github.com/ba0gu0/wps-rce]
+[ba0gu0/wps-rce](https://github.com/ba0gu0/wps-rce)
 
 
 # WPS-0DAY-20230809
